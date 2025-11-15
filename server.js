@@ -89,6 +89,7 @@ app.get('*', (req, res) => {
 
 // 5. Start Listening
 const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => {
+// THE FIX: Listen on '0.0.0.0' to accept connections from outside the container.
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
